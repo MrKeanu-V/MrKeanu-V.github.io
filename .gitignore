@@ -1,0 +1,14 @@
+# Hexo 2 & 3 忽略列表
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+_multiconfig.yml
+
+# 忽略IDE配置文件
+.vscode/
+.idea/
+

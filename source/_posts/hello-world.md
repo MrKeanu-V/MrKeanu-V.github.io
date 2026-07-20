@@ -1,0 +1,56 @@
+---
+title: Hexo Fluid 使用指南
+slogan: "Welcome to Hexo!"
+categories: 
+  - Hexo
+tags:
+  - template
+date: 2025-06-01
+published: false
+comments: true
+index_img: /image/bg/view_moon.jpg
+banner_img: /image/bg/moutain.png
+hide: true
+---
+Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+
+## Quick Start
+
+### Create a new post
+
+``` bash
+$ hexo new "My New Post"
+```
+
+More info: [Writing](https://hexo.io/docs/writing.html)
+
+### Run server
+
+``` bash
+$ hexo server
+```
+
+More info: [Server](https://hexo.io/docs/server.html)
+
+### Generate static files
+
+``` bash
+$ hexo generate
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### Deploy to remote sites
+
+``` bash
+$ hexo deploy
+```
+
+More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+
+“
+尽管我错过了很多时代的浪潮，但此刻我处于AI的大浪之中。
+我知道我绝大概率做不了浪尖的弄潮儿，
+但我希望我会顺应这波涛做一些什么，
+哪怕丁点
+”
