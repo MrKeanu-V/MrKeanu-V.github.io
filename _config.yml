@@ -5,7 +5,7 @@
 # Site
 title: MrKeanu-Blog
 subtitle: 'Completion is better than perfection.'
-description: '完成胜过完美'
+description: '瀹屾垚鑳滆繃瀹岀編'
 keywords: Blog
 author: MrKeanu
 language: zh-CN  #en
@@ -111,7 +111,7 @@ deploy:
 githubEmojis:
   enable: false
 
-# 访问速度提升
+# 璁块棶閫熷害鎻愬崌
 all_minifier:
   enable: true
   exclude:
@@ -125,7 +125,7 @@ all_minifier:
     enable: true
     level: 2
 
-# LaTex数学公式支持
+# LaTex鏁板鍏紡鏀寔
 markdown:
   plugins:
     - "@traptitech/markdown-it-katex"
