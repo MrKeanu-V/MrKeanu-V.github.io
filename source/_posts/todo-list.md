@@ -84,6 +84,8 @@ Dark Mode for IDE, Light  attracts Bugs.
 {% cb 生活嘛，荒诞中透着混蛋, false, false %}
 {% cb ~~人分三六九等~~, true, false %}
 
+{% cb 一封给AI的致谢, true, false %}
+
 
 {% fold info Markdown按钮 %}
 - [ ] 福兮祸伏，祸兮福倚
@@ -92,3 +94,14 @@ Dark Mode for IDE, Light  attracts Bugs.
 - [ ] 生活嘛，荒诞中透着混蛋，狗日的就让人很操蛋。
 - [ ] 人分三六九等
 {% endfold %}
+
+
+
+“
+尽管我错过了很多时代的浪潮，但此刻我处于AI的大浪之中。
+我知道我绝大概率做不了浪尖的弄潮儿，
+但我希望我会顺应这波涛做一些什么，
+哪怕丁点
+”
+
+——《一封给AI的致谢》

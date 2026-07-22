@@ -47,10 +47,3 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
-
-“
-尽管我错过了很多时代的浪潮，但此刻我处于AI的大浪之中。
-我知道我绝大概率做不了浪尖的弄潮儿，
-但我希望我会顺应这波涛做一些什么，
-哪怕丁点
-”
