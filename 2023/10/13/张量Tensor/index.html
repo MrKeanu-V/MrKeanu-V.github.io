@@ -1,0 +1,1007 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/image/icon/avatar_shirt_alpha.png">
+  <link rel="icon" href="/image/icon/avatar_shirt_alpha.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="MrKeanu">
+  <meta name="keywords" content="Blog">
+  
+    <meta name="description" content="Pytorch的基本数据结构——张量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="张量Tensor">
+<meta property="og:url" content="https://mrkeanu-v.github.io/2023/10/13/%E5%BC%A0%E9%87%8FTensor/index.html">
+<meta property="og:site_name" content="MrKeanu-Blog">
+<meta property="og:description" content="Pytorch的基本数据结构——张量">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mrkeanu-v.github.io/image/index/pytorch.png">
+<meta property="article:published_time" content="2023-10-12T17:32:11.000Z">
+<meta property="article:modified_time" content="2025-06-09T16:00:30.000Z">
+<meta property="article:author" content="MrKeanu">
+<meta property="article:tag" content="Pytorch">
+<meta property="article:tag" content="Deep Learning">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mrkeanu-v.github.io/image/index/pytorch.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>张量Tensor - MrKeanu-Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mrkeanu-v.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/image/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>MrKeanu</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/image/bg/flower_in_sky.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="张量Tensor"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-13 01:32" pubdate>
+          2023年10月13日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">张量Tensor</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1>一、张量Tensor</h1>
+<h2 id="（一）简介">（一）简介</h2>
+<p>Tensor张量是一个多维数组，可以是标量、向量、矩阵或更高维度的数据结构。Tensor数据类型可类比于Numpy中的Numpy数组，除了在图像数据编码上存在差异外，最大的区别就是Numpy数组存储于CPU内存，而Pytorch为了使用GPU对训练进行加速使Tensor支持内存存储和显存存储。并且Pytorch为Tensor提供了更多的属性和功能，比如计算图和自动求导。因此使用Pytorch框架所有的与深度学习相关的计算，尤其是模型的训练，其数据都应使用Tensor类型。</p>
+<h2 id="（二）初始化">（二）初始化</h2>
+<h4 id="张量创建">张量创建</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>方法</strong></th>
+<th style="text-align:left"><strong>说明</strong></th>
+<th style="text-align:left"><strong>示例代码</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">torch.tensor(data)</td>
+<td style="text-align:left">从 Python 列表或 NumPy 数组创建张量。</td>
+<td style="text-align:left">x = torch.tensor([[1, 2], [3, 4]])</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.zeros(size)</td>
+<td style="text-align:left">创建一个全为零的张量。</td>
+<td style="text-align:left">x = torch.zeros((2, 3))</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.ones(size)</td>
+<td style="text-align:left">创建一个全为 1 的张量。</td>
+<td style="text-align:left">x = torch.ones((2, 3))</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.empty(size)</td>
+<td style="text-align:left">创建一个未初始化的张量。</td>
+<td style="text-align:left">x = torch.empty((2, 3))</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.rand(size)</td>
+<td style="text-align:left">创建一个服从均匀分布的随机张量，值在 [0, 1)。</td>
+<td style="text-align:left">x = torch.rand((2, 3))</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.randn(size)</td>
+<td style="text-align:left">创建一个服从正态分布的随机张量，均值为 0，标准差为 1。</td>
+<td style="text-align:left">x = torch.randn((2, 3))</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.arange(start, end, step)</td>
+<td style="text-align:left">创建一个一维序列张量，类似于 Python 的 range。</td>
+<td style="text-align:left">x = torch.arange(0, 10, 2)</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.linspace(start, end, steps)</td>
+<td style="text-align:left">创建一个在指定范围内等间隔的序列张量。</td>
+<td style="text-align:left">x = torch.linspace(0, 1, 5)</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.eye(size)</td>
+<td style="text-align:left">创建一个单位矩阵（对角线为 1，其他为 0）。</td>
+<td style="text-align:left">x = torch.eye(3)</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.from_numpy(ndarray)</td>
+<td style="text-align:left">将 NumPy 数组转换为张量。</td>
+<td style="text-align:left">x = torch.from_numpy(np.array([1, 2, 3]))</td>
+</tr>
+</tbody>
+</table>
+<h2 id="（三）转换与属性">（三）转换与属性</h2>
+<h4 id="张量转换">张量转换</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>操作</strong></th>
+<th style="text-align:left"><strong>说明</strong></th>
+<th style="text-align:left"><strong>示例代码</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">torch.from_numpy(ndarray)</td>
+<td style="text-align:left">将 NumPy 数组转换为张量。（<strong>共享内存</strong>）。</td>
+<td style="text-align:left">x = torch.from_numpy(np_array)</td>
+</tr>
+<tr>
+<td style="text-align:left">x.numpy()</td>
+<td style="text-align:left">将张量转换为 NumPy 数组（<strong>仅限 CPU 张量</strong>）。</td>
+<td style="text-align:left">np_array = x.numpy()</td>
+</tr>
+</tbody>
+</table>
+<h4 id="张量属性">张量属性</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>属性</strong></th>
+<th style="text-align:left"><strong>说明</strong></th>
+<th style="text-align:left"><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">.shape</td>
+<td style="text-align:left">获取张量的形状</td>
+<td style="text-align:left">tensor.shape</td>
+</tr>
+<tr>
+<td style="text-align:left">.size()</td>
+<td style="text-align:left">获取张量的形状</td>
+<td style="text-align:left">tensor.size()</td>
+</tr>
+<tr>
+<td style="text-align:left">.dtype</td>
+<td style="text-align:left">获取张量的数据类型</td>
+<td style="text-align:left">tensor.dtype</td>
+</tr>
+<tr>
+<td style="text-align:left">.device</td>
+<td style="text-align:left">查看张量所在的设备 (CPU/GPU)</td>
+<td style="text-align:left">tensor.device</td>
+</tr>
+<tr>
+<td style="text-align:left">.dim()</td>
+<td style="text-align:left">获取张量的维度数</td>
+<td style="text-align:left">tensor.dim()</td>
+</tr>
+<tr>
+<td style="text-align:left">.ndim</td>
+<td style="text-align:left">获取张量的维度数</td>
+<td style="text-align:left">tensor.ndim</td>
+</tr>
+<tr>
+<td style="text-align:left">.requires_grad</td>
+<td style="text-align:left">是否启用梯度计算</td>
+<td style="text-align:left">tensor.requires_grad</td>
+</tr>
+<tr>
+<td style="text-align:left">.numel()</td>
+<td style="text-align:left">获取张量中的元素总数</td>
+<td style="text-align:left">tensor.numel()</td>
+</tr>
+<tr>
+<td style="text-align:left">.is_cuda</td>
+<td style="text-align:left">检查张量是否在 GPU 上</td>
+<td style="text-align:left">tensor.is_cuda</td>
+</tr>
+<tr>
+<td style="text-align:left">.T</td>
+<td style="text-align:left">获取张量的转置（适用于 2D 张量）</td>
+<td style="text-align:left">tensor.T</td>
+</tr>
+<tr>
+<td style="text-align:left">.item()</td>
+<td style="text-align:left">获取单元素张量的值</td>
+<td style="text-align:left">tensor.item()</td>
+</tr>
+<tr>
+<td style="text-align:left">.is_contiguous()</td>
+<td style="text-align:left">检查张量是否连续存储</td>
+<td style="text-align:left">tensor.is_contiguous()</td>
+</tr>
+</tbody>
+</table>
+<h2 id="（四）相关操作">（四）相关操作</h2>
+<h4 id="张量操作">张量操作</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>操作</strong></th>
+<th style="text-align:left"><strong>说明</strong></th>
+<th style="text-align:left"><strong>示例代码</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">+, -, *, /</td>
+<td style="text-align:left">元素级加法、减法、乘法、除法。</td>
+<td style="text-align:left">z = x + y</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.matmul(x, y)</td>
+<td style="text-align:left">矩阵乘法。</td>
+<td style="text-align:left">z = torch.matmul(x, y)</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.dot(x, y)</td>
+<td style="text-align:left">向量点积（仅适用于 1D 张量）。</td>
+<td style="text-align:left">z = torch.dot(x, y)</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.sum(x)</td>
+<td style="text-align:left">求和。</td>
+<td style="text-align:left">z = torch.sum(x)</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.mean(x)</td>
+<td style="text-align:left">求均值。</td>
+<td style="text-align:left">z = torch.mean(x)</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.max(x)</td>
+<td style="text-align:left">求最大值。</td>
+<td style="text-align:left">z = torch.max(x)</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.min(x)</td>
+<td style="text-align:left">求最小值。</td>
+<td style="text-align:left">z = torch.min(x)</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.argmax(x, dim)</td>
+<td style="text-align:left">返回最大值的索引（指定维度）。</td>
+<td style="text-align:left">z = torch.argmax(x, dim=1)</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.softmax(x, dim)</td>
+<td style="text-align:left">计算 softmax（指定维度）。</td>
+<td style="text-align:left">z = torch.softmax(x, dim=1)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>操作</strong></th>
+<th style="text-align:left"><strong>说明</strong></th>
+<th style="text-align:left"><strong>示例代码</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">x.view(shape)</td>
+<td style="text-align:left">改变张量的形状（不改变数据）。</td>
+<td style="text-align:left">z = x.view(3, 4)</td>
+</tr>
+<tr>
+<td style="text-align:left">x.reshape(shape)</td>
+<td style="text-align:left">类似于 view，但更灵活。</td>
+<td style="text-align:left">z = x.reshape(3, 4)</td>
+</tr>
+<tr>
+<td style="text-align:left">x.t()</td>
+<td style="text-align:left">转置矩阵。</td>
+<td style="text-align:left">z = x.t()</td>
+</tr>
+<tr>
+<td style="text-align:left">x.unsqueeze(dim)</td>
+<td style="text-align:left">在指定维度添加一个维度。</td>
+<td style="text-align:left">z = x.unsqueeze(0)</td>
+</tr>
+<tr>
+<td style="text-align:left">x.squeeze(dim)</td>
+<td style="text-align:left">去掉指定维度为 1 的维度。</td>
+<td style="text-align:left">z = x.squeeze(0)</td>
+</tr>
+<tr>
+<td style="text-align:left">torch.cat((x, y), dim)</td>
+<td style="text-align:left">按指定维度连接多个张量。</td>
+<td style="text-align:left">z = torch.cat((x, y), dim=1)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="示例代码">示例代码</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><br><span class="hljs-comment"># 创建一个 2D 张量</span><br>tensor = torch.tensor([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]], dtype=torch.float32)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;原始张量:\n&quot;</span>, tensor)<br><br><span class="hljs-comment"># 1. **索引和切片操作**</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\n【索引和切片】&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;获取第一行:&quot;</span>, tensor[<span class="hljs-number">0</span>])  <span class="hljs-comment"># 获取第一行</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;获取第一行第一列的元素:&quot;</span>, tensor[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>])  <span class="hljs-comment"># 获取特定元素</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;获取第二列的所有元素:&quot;</span>, tensor[:, <span class="hljs-number">1</span>])  <span class="hljs-comment"># 获取第二列所有元素</span><br><br><span class="hljs-comment"># 2. **形状变换操作**</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\n【形状变换】&quot;</span>)<br>reshaped = tensor.view(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>)  <span class="hljs-comment"># 改变张量形状为 3x2</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;改变形状后的张量:\n&quot;</span>, reshaped)<br>flattened = tensor.flatten()  <span class="hljs-comment"># 将张量展平成一维</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;展平后的张量:\n&quot;</span>, flattened)<br><br><span class="hljs-comment"># 3. **数学运算操作**</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\n【数学运算】&quot;</span>)<br>tensor_add = tensor + <span class="hljs-number">10</span>  <span class="hljs-comment"># 张量加法</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;张量加 10:\n&quot;</span>, tensor_add)<br>tensor_mul = tensor * <span class="hljs-number">2</span>  <span class="hljs-comment"># 张量乘法</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;张量乘 2:\n&quot;</span>, tensor_mul)<br>tensor_sum = tensor.<span class="hljs-built_in">sum</span>()  <span class="hljs-comment"># 计算所有元素的和</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;张量元素的和:&quot;</span>, tensor_sum.item())<br><br><span class="hljs-comment"># 4. **与其他张量的操作**</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\n【与其他张量操作】&quot;</span>)<br>tensor2 = torch.tensor([[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]], dtype=torch.float32)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;另一个张量:\n&quot;</span>, tensor2)<br>tensor_dot = torch.matmul(tensor, tensor2.T)  <span class="hljs-comment"># 张量矩阵乘法</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;矩阵乘法结果:\n&quot;</span>, tensor_dot)<br><br><span class="hljs-comment"># 5. **条件判断和筛选**</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\n【条件判断和筛选】&quot;</span>)<br>mask = tensor &gt; <span class="hljs-number">3</span>  <span class="hljs-comment"># 创建一个布尔掩码</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;大于 3 的元素的布尔掩码:\n&quot;</span>, mask)<br>filtered_tensor = tensor[tensor &gt; <span class="hljs-number">3</span>]  <span class="hljs-comment"># 筛选出符合条件的元素</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;大于 3 的元素:\n&quot;</span>, filtered_tensor)<br><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Incessant-Coding-%E7%BC%96%E7%A8%8B%E4%B8%8D%E8%BE%8D/" class="category-chain-item">Incessant Coding-编程不辍</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Incessant-Coding-%E7%BC%96%E7%A8%8B%E4%B8%8D%E8%BE%8D/Deep-Learning-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="category-chain-item">Deep Learning-深度学习</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Pytorch/" class="print-no-link">#Pytorch</a>
+      
+        <a href="/tags/Deep-Learning/" class="print-no-link">#Deep Learning</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>张量Tensor</div>
+      <div>https://mrkeanu-v.github.io/2023/10/13/张量Tensor/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>MrKeanu</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/10/19/%E5%9B%B0%E9%A1%BF%E4%B9%8B%E8%B0%88/" title="困顿之谈">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">困顿之谈</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/09/05/%E5%88%9D%E8%AF%86Pytorch/" title="初识Pytorch">
+                        <span class="hidden-mobile">初识Pytorch</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'boxy-light';
+      var dark = 'photon-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'MrKeanu-V/MrKeanu-V.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', '✨Comments✨');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/MrKeanu-V" target="_blank" rel="nofollow noopener"><span>GitHub</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,987 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/image/icon/avatar_shirt_alpha.png">
+  <link rel="icon" href="/image/icon/avatar_shirt_alpha.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="MrKeanu">
+  <meta name="keywords" content="Blog">
+  
+    <meta name="description" content="这是我的第一篇博客，记录一下使用 Hexo 的常用构建指令和写作语句。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo Fluid 初体验">
+<meta property="og:url" content="https://mrkeanu-v.github.io/2025/06/01/hello-hexo/index.html">
+<meta property="og:site_name" content="MrKeanu-Blog">
+<meta property="og:description" content="这是我的第一篇博客，记录一下使用 Hexo 的常用构建指令和写作语句。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mrkeanu-v.github.io/image/index/hexo_fluid.png">
+<meta property="article:published_time" content="2025-05-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-10-14T15:23:34.000Z">
+<meta property="article:author" content="MrKeanu">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Markdown">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mrkeanu-v.github.io/image/index/hexo_fluid.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Hexo Fluid 初体验 - MrKeanu-Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mrkeanu-v.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/image/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>MrKeanu</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/image/bg/moutain.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Hexo Fluid 初体验"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-01 00:00" pubdate>
+          2025年6月1日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Hexo Fluid 初体验</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>这是我的第一篇博客，记录一下使用 Hexo 的常用构建指令和写作语句。</p>
+<h1>Hexo 基础指令</h1>
+<p>Hexo 是一个快速、简洁且高效的博客框架，使用 Node.js 编写。Hexo 使用 Markdown 解析文章，支持多种主题。具体可参考Hexo 官方文档<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Hexo官方文档](https://hexo.io/zh-cn/docs/)">[2]</span></a></sup>。</p>
+<h2 id="文章相关">文章相关</h2>
+<h3 id="新建文章">新建文章</h3>
+<h4 id="命令行">命令行</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new [layout] &lt;post_name&gt;<br>hexo new code helloworld	<span class="hljs-comment"># example</span><br><br><span class="hljs-comment"># 本文设提供推荐可选参数 coding insight life</span><br></code></pre></td></tr></table></figure>
+<p>layout 可选参数：post、page、draft，默认为post。post为文章，page为页面，draft为草稿。对应路径分别为<code>source/_posts</code>、<code>source</code>、<code>source/_drafts</code>。</p>
+<h4 id="自定义Layout">自定义Layout</h4>
+<p>可以自定义layout充当脚手架，只需要在scaffolds文件夹下创建对应md文件即可。如：<code>hexo new mylayout &lt;post_name&gt;</code>，则会在<code>source/_posts</code>下寻找<code>mylayout.md</code>。并根据其中内容简历文章。</p>
+<div class="note note-info">
+            <p>现在项目layout可选参数：post、page、draft、coding、insight、life</p><p>其中post、page、draft为Hexo提供的默认参数，分别为po文、分栏级别的页面、草稿文章。</p><p><strong>coding</strong>：编程不辍 - 编程相关文章</p><p><strong>insight</strong>：步履不停 - 思悟相关文章</p><p><strong>life</strong>：生生不息 - 年度总结文章</p>
+          </div>
+<h3 id="文章配置">文章配置</h3>
+<p>Hexo Fluid使用<strong>Front-matter</strong>配置文章，格式支持YAML或JSON两类,详细参数和默认值参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">Front-matter参数</a>。</p>
+<h4 id="YAML">YAML</h4>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">关于页</span><br><span class="hljs-attr">layout:</span> <span class="hljs-string">about</span><br><span class="hljs-attr">index_img:</span> <span class="hljs-string">/img/example.jpg</span> <span class="hljs-comment"># 首页中显示的索引图片</span><br><span class="hljs-attr">banner_img:</span> <span class="hljs-string">/image/bg/flower_in_sky.jpg</span> <span class="hljs-comment"># 文章顶部菜单栏的背景图片</span><br><span class="hljs-attr">banner_img_height:</span> <span class="hljs-number">70</span> <span class="hljs-comment"># 图片参数设置，此处为高度</span><br><span class="hljs-attr">banner_mask_alpha:</span> <span class="hljs-number">0.3</span> <span class="hljs-comment"># 图片参数设置，此处为透明度</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2025</span><span class="hljs-string">/7/13</span> <span class="hljs-number">20</span><span class="hljs-string">:46:25</span> <span class="hljs-comment"># 文章日期</span><br><span class="hljs-attr">comment:</span> <span class="hljs-string">&#x27;valine&#x27;</span><br><span class="hljs-attr">subtitle:</span> <span class="hljs-string">&quot;This is a slogan showing on page top&quot;</span> <span class="hljs-comment"># 显示在文章顶部的Slogan</span><br><span class="hljs-attr">excerpt:</span> <span class="hljs-string">&quot;hello world&quot;</span> <span class="hljs-comment"># 显示在首页中的文章简介</span><br><span class="hljs-attr">categories:</span> <span class="hljs-comment"># ‘分类’</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">Incessant</span> <span class="hljs-string">Coding-编程不辍</span><br><span class="hljs-attr">tags:</span> [<span class="hljs-string">This</span>, <span class="hljs-string">b</span>] <span class="hljs-comment"># ‘标签’</span><br><span class="hljs-attr">archive:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 不显示在首页目录，但显示在归档中</span><br><span class="hljs-attr">hide:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 不显示文档</span><br><span class="hljs-attr">math:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 支持LaTeX数学公式</span><br><span class="hljs-attr">mermaid:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 支持mermaid流程图</span><br><span class="hljs-meta">---</span><br><span class="hljs-string">以下是正文内容</span><br></code></pre></td></tr></table></figure>
+<p><strong>YAML格式以—作开头和结尾。</strong></p>
+<h4 id="JSON">JSON</h4>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;title&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Hello World&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;layout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;post&quot;</span><br><span class="hljs-attr">&quot;date&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2025/7/13 20:46:25&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;math&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;true&quot;</span><br>;;;<br></code></pre></td></tr></table></figure>
+<p><strong>JSON格式仅以;;;结尾</strong></p>
+<h2 id="本地调试">本地调试</h2>
+<p>Hexo框架为<strong>所见即所得</strong>模式，本地服务器界面如何，远程即如何。</p>
+<p>因此完成的文章可于本地调试，然后再更新。</p>
+<p>本地服务器采用热更新，实时读取生成静态文件。</p>
+<h4 id="命令行-2">命令行</h4>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">hexo server	# 启动本地服务器调试，默认端口<span class="hljs-number">4000</span><br></code></pre></td></tr></table></figure>
+<p>本地使用hexo server启动服务器，默认端口4000，可使用<code>hexo server -p 5000</code>指定端口。本地服务器热更新。</p>
+<h4 id="指定端口">指定端口</h4>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">hexo server -p <span class="hljs-number">5000</span><br></code></pre></td></tr></table></figure>
+<h2 id="部署">部署</h2>
+<p>部署完整流程和代码编译类似，需要先清理原生成文件和缓存，并重新编译生成静态文件，然后部署。</p>
+<p>部署到remote服务器（如github），需提前在<code>_config.yml</code>文件中配置服务器地址。</p>
+<div class="note note-danger">
+            <p><strong>注意</strong>：hexo部署应该是只支持SSH连接的，需要提前配置好与服务器的SSH密钥对。</p>
+          </div>
+<h4 id="命令行-3">命令行</h4>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmd">hexo clean	# 清理缓存<br>hexo generate --deploy  # 生成静态文件并部署<br>hexo deploy	# 部署到服务器<br></code></pre></td></tr></table></figure>
+<p>部署前一般使用hexo clean清理缓存，然后需要生成静态文件，最后hexo deploy部署到服务器。</p>
+<h4 id="实时生成">实时生成</h4>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">hexo generate --watch	# 简化generate，便于调试编辑<br></code></pre></td></tr></table></figure>
+<p>可以使用<code> hexo generate --watch</code>命令，可以生成静态文件后，实时监控文件变化，自动重新生成。</p>
+<h4 id="一键部署">一键部署</h4>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">hexo generate --deploy	# 生成并部署<br></code></pre></td></tr></table></figure>
+<p>使用<code>hexo generate --deploy</code>命令，可以简化生成和部署的步骤。</p>
+<h1>Hexo 写作语法</h1>
+<p>Hexo支持大多数文本语法，如Markdown、HTML等。对于Markdown语法，可以参考<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Markdown语法](https://www.markdownguide.org/basic-syntax/)">[1]</span></a></sup>，Hexo扩展了Markdown一些功能。<br>
+我目前使用的是Hexo Fluid 主题，其在Hexo基础上又封装了一些更方便的语法，具体语法可参考<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Hexo Fluid 主题文档](https://hexo.fluid-dev.com/docs)">[3]</span></a></sup>。</p>
+<h2 id="行内语法">行内语法</h2>
+<h3 id="行内图片">行内图片</h3>
+<p>这是一张测试图片，语法同Markdown。<img src="/image/bg/view_moon.jpg" srcset="/image/loading.gif" lazyload alt="测试图"></p>
+<p>说是行内，时间上还是独占一行显示的，在这里只是和Hexo的组图做区别。</p>
+<p>用法参见<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Markdown语法](https://www.markdownguide.org/basic-syntax/)">[1]</span></a></sup>。</p>
+<h3 id="脚注">脚注</h3>
+<p>Hexo Fluid在<code>_config.fluid.yml</code>主题配置文件中内置支持脚注，关键字<code>footnote</code>。</p>
+<p>Hexo Fluid中脚注引用只能为数字，并且会统一到参考文献中并自动排序。</p>
+<h4 id="语法">语法</h4>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">这是脚注引用1[^1]。脚注引用2[^2]。<br>[<span class="hljs-symbol">^1</span>]: <span class="hljs-link">这是脚注内容</span><br>[<span class="hljs-symbol">^2</span>]: <span class="hljs-link">这是脚注2引用内容</span><br></code></pre></td></tr></table></figure>
+<p>和Markdown的脚注其实差不多，甚至还没有Markdown的功能强大，Markdown的脚注支持自定义引用内容。</p>
+<p>支持定位，可以以参考文献的形式使用。</p>
+<h4 id="示例">示例</h4>
+<p>这是脚注引用1<sup id="fnref:11" class="footnote-ref"><a href="#fn:11" rel="footnote"><span class="hint--top hint--rounded" aria-label="这是脚注11，被自动排到文末参考文献后">[11]</span></a></sup>。脚注引用2<sup id="fnref:22" class="footnote-ref"><a href="#fn:22" rel="footnote"><span class="hint--top hint--rounded" aria-label="这是脚注22，序号自动排列">[22]</span></a></sup>。</p>
+<h3 id="便签">便签</h3>
+<h4 id="语法-2">语法</h4>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% note style %&#125;<br>text<br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>style</strong>：为便签风格，便签可选类型：primary、default、info、success、warning、danger、light</p>
+<p><strong>text</strong>：为文本，支持Markdown</p>
+<h4 id="示例-2">示例</h4>
+<p>效果如下：</p>
+<div class="note note-primary">
+            <p>primary 风格便签，这是里便签内容。</p>
+          </div>
+<div class="note note-success">
+            <p>success 风格便签，这是里便签内容。</p>
+          </div>
+<div class="note note-info">
+            <p>default 风格便签，这是里便签内容。</p>
+          </div>
+<div class="note note-info">
+            <p>info 风格便签，这是里便签内容。</p>
+          </div>
+<div class="note note-warning">
+            <p>warning 风格便签，这是里便签内容。</p>
+          </div>
+<div class="note note-danger">
+            <p>danger 风格便签，这是里便签内容。</p>
+          </div>
+<div class="note note-light">
+            <p>light风格便签，这是里便签内容。</p>
+          </div>
+<h3 id="行内便签">行内便签</h3>
+<h4 id="语法-3">语法</h4>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% label style @text %&#125;<br><span class="hljs-section"># 也支持HTML格式</span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;label label-primary&quot;</span>&gt;</span></span>Label<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<p><strong>style</strong>：风格，可选类型primary、default、info、success、warning、danger</p>
+<p><strong>@text</strong>：文本</p>
+<div class="note note-danger">
+            <p><strong>注意</strong>：<code>@text</code>中的<code>@</code>不能省略。</p>
+          </div>
+<h4 id="示例-3">示例</h4>
+<p>行内便签示例<span class="label label-default">这是行内便签，label</span></p>
+<p>可选类型效果如下：</p>
+<span class="label label-primary">primary</span>
+<span class="label label-default">default</span>
+<span class="label label-info">info</span>
+<span class="label label-success">success</span>
+<span class="label label-warning">warning</span>
+<span class="label label-danger">danger</span>
+<h2 id="块级语法">块级语法</h2>
+<h3 id="折叠块">折叠块</h3>
+<h4 id="语法-4">语法</h4>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% fold info @title %&#125;<br>可以折叠任何markdown内容，如代码、图片、文段等<br>&#123;% endfold %&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>info</strong>: 和行内标签类似的可选参数</p>
+<p><strong>title</strong>: 折叠块上的标题，</p>
+<div class="note note-danger">
+            <p>注意<code>@title</code>中的<code>@</code>不能省略</p>
+          </div>
+<h4 id="示例-4">示例</h4>
+<p>折叠块可折叠代码等内容，示例如下：</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-0ef3fd36" role="button" aria-expanded="false" aria-controls="collapse-0ef3fd36">
+        <div class="fold-arrow">▶</div>折叠代码
+      </div>
+      <div class="fold-collapse collapse" id="collapse-0ef3fd36">
+        <div class="fold-content">
+          <p>info类型</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello Hexo!&quot;</span>)<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="fold">
+      <div class="fold-title fold-danger collapsed" data-toggle="collapse" href="#collapse-98187b42" role="button" aria-expanded="false" aria-controls="collapse-98187b42">
+        <div class="fold-arrow">▶</div>折叠图片
+      </div>
+      <div class="fold-collapse collapse" id="collapse-98187b42">
+        <div class="fold-content">
+          <p>danger类型。</p><p><strong>组图</strong>：</p><div class="group-image-container"><div class="group-image-row"><div class="group-image-wrap"><img src="/image/bg/insects_01.jpg" srcset="/image/loading.gif" lazyload alt="图片1"></div><div class="group-image-wrap"><img src="/image/bg/cat_with_fish.jpg" srcset="/image/loading.gif" lazyload alt="图片2"></div><div class="group-image-wrap"><img src="/image/bg/insects_05.jpg" srcset="/image/loading.gif" lazyload alt="图片3"></div></div><div class="group-image-row"><div class="group-image-wrap"><img src="/image/bg/view_moon.jpg" srcset="/image/loading.gif" lazyload alt="图片5"></div></div></div>
+        </div>
+      </div>
+    </div>
+<h3 id="勾选框">勾选框</h3>
+<h4 id="语法-5">语法</h4>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% cb text, checked?, incline? %&#125;  # 行内<br></code></pre></td></tr></table></figure>
+<p><strong>text</strong>：显示的文字<br>
+<strong>checked</strong>：默认是否已勾选，默认 false<br>
+<strong>incline</strong>: 是否内联（可以理解为后面的文字是否换行），默认 false</p>
+<h4 id="示例-5">示例</h4>
+<p><strong>行内用法示例</strong>：
+            <input type="checkbox"  checked="checked">我是行内勾选框
+
+          ，后文不换行。</p>
+<p><strong>行间用法示例</strong>：<div>
+            <input type="checkbox"  checked="checked">我是行间勾选框
+
+          </div>，前后文换行。</p>
+<h3 id="按钮">按钮</h3>
+<p>按钮支持Markdown和HTML。</p>
+<h4 id="语法-6">语法</h4>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% btn url, text, title %&#125;<br><span class="hljs-section"># HTML形式</span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;title&quot;</span>&gt;</span></span>text<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<p><strong>url</strong>：跳转链接<br>
+<strong>text</strong>：显示的文字<br>
+<strong>title</strong>：鼠标悬停时显示的文字（可选）</p>
+<h4 id="示例-6">示例</h4>
+<p>按钮可以用于跳转链接，用法如下：</p>
+<a class="btn" href="https://github.com/MrKeanu-V"  title="(ゝ∀･)" target="_blank">(´;ω;`)</a>
+<p>可爱捏~</p>
+<h3 id="组图">组图</h3>
+<p>不像Markdown中组图需要通过CSS或HTML来实现，Hexo Fluid直接支持组图排版。</p>
+<h4 id="语法-7">语法</h4>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% gi total n1-n2-... %&#125;<br>  ![](<span class="hljs-link">url</span>)<br>  ![](<span class="hljs-link">url</span>)<br>  ![](<span class="hljs-link">url</span>)<br>  ![](<span class="hljs-link">url</span>)<br>  ![](<span class="hljs-link">url</span>)<br>&#123;% endgi %&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>total</strong>：图片总数量，对应中间包含的图片 url 数量<br>
+<strong>n1-n2-…</strong>：每行的图片数量，<span class="label label-info">可以省略</span>，默认单行最多 3 张图，求和必须相等于 total，否则按默认样式</p>
+<h4 id="示例-7">示例</h4>
+<p>用于把多张图片按一定布局组合显示，示例：</p>
+<div class="group-image-container"><div class="group-image-row"><div class="group-image-wrap"><img src="/image/bg/insects_01.jpg" srcset="/image/loading.gif" lazyload alt="图片1"></div><div class="group-image-wrap"><img src="/image/bg/insects_02.jpg" srcset="/image/loading.gif" lazyload alt="图片2"></div><div class="group-image-wrap"><img src="/image/bg/insects_03.jpg" srcset="/image/loading.gif" lazyload alt="图片3"></div><div class="group-image-wrap"><img src="/image/bg/insects_04.jpg" srcset="/image/loading.gif" lazyload alt="图片4"></div></div><div class="group-image-row"><div class="group-image-wrap"><img src="/image/bg/view_moon.jpg" srcset="/image/loading.gif" lazyload alt="图片5"></div><div class="group-image-wrap"><img src="/image/bg/wale_fly.png" srcset="/image/loading.gif" lazyload alt="图片6"></div></div></div>
+<p>组图模式会自动调整图片大小。</p>
+<h3 id="流程图">流程图</h3>
+<p>本身Markdown也是支持Mermaid流程图的，Hexo支持流程图需要在配置文件中搜索关键字<code>mermaid</code>并设置<code>enable</code>为真。</p>
+<p>并且使用前需要在<strong>Front-matter</strong>中配置<code>mermaid: true</code>。</p>
+<p>Mermaid配置项可参考<a target="_blank" rel="noopener" href="https://mermaid.js.org/config/usage.html">Mermaid官方API</a>。</p>
+<p>Hexo支持内置Tag和Markdown原生的代码块方式写Mermaid流程图。</p>
+<h4 id="语法-8">语法</h4>
+<p>内置Tag：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs markdown">&#123;% mermaid %&#125;<br>gantt<br>dateFormat  YYYY-MM-DD<br>title Adding GANTT diagram to mermaid<br><br>section A section<br>Completed task            :done,    des1, 2014-01-06,2014-01-08<br>Active task               :active,  des2, 2014-01-09, 3d<br>Future task               :         des3, after des2, 5d<br>Future task2               :         des4, after des3, 5d<br>&#123;% endmermaid %&#125;<br></code></pre></td></tr></table></figure>
+<p>Markdown代码块</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">```mermaid</span><br><span class="hljs-code">classDiagram</span><br><span class="hljs-code">Class01 &lt;|-- AveryLongClass : Cool</span><br><span class="hljs-code">Class03 *-- Class04</span><br><span class="hljs-code">Class05 o-- Class06</span><br><span class="hljs-code">Class07 .. Class08</span><br><span class="hljs-code">Class09 --&gt; C2 : Where am i?</span><br><span class="hljs-code">Class09 --* C3</span><br><span class="hljs-code">Class09 --|&gt; Class07</span><br><span class="hljs-code">Class07 : equals()</span><br><span class="hljs-code">Class07 : Object[] elementData</span><br><span class="hljs-code">Class01 : size()</span><br><span class="hljs-code">Class01 : int chimp</span><br><span class="hljs-code">Class01 : int gorilla</span><br><span class="hljs-code">Class08 &lt;--&gt; C2: Cool label</span><br></code></pre></td></tr></table></figure>
+<h4 id="示例-8">示例</h4>
+
+<pre>
+<code class="mermaid" >
+gantt
+dateFormat  YYYY-MM-DD
+title Adding GANTT diagram to mermaid
+
+section A section
+Completed task            :done,    des1, 2014-01-06,2014-01-08
+Active task               :active,  des2, 2014-01-09, 3d
+Future task               :         des3, after des2, 5d
+Future task2               :         des4, after des3, 5d
+</code>
+</pre>
+<h2 id="其他">其他</h2>
+<h3 id="Emoji-kissing-closed-eyes">Emoji :kissing_closed_eyes:</h3>
+<p>支持的Emoji见<a target="_blank" rel="noopener" href="https://gist.github.com/rxaviers/7360908">Emoji列表</a><br>
+不过对于不同Markdown渲染器，支持的Emoji可能不同，具体可参考，可以使用Unicode编码的Emoji，效果可能更好，如：:art:使用🎨，详细可参考unicode官网<a target="_blank" rel="noopener" href="https://unicode.org/emoji/charts/full-emoji-list.html">Unicode Emoji列表</a></p>
+<p>Windows系统下使用<span class="label label-primary">Win+</span>，可以快捷选择Unicode标签，Mac系统则是<span class="label label-primary">control+command+space</span>。</p>
+<h1>Markdown语法</h1>
+<p>更详细的语法可参考Markdown官方语法<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Markdown语法](https://www.markdownguide.org/basic-syntax/)">[1]</span></a></sup>。</p>
+<h2 id="行内语法-2">行内语法</h2>
+<p>删除线：<s>删除线</s><br>
+下划线：<u>下划线</u><br>
+高亮：<mark style="background-color: #FFFF00">高亮</mark></p>
+<p>框选：- [x] 单选框</p>
+<p>行内数学公式：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∇</mi><mi>L</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">∇L(θ)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∇</span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span></p>
+<h2 id="块级语法-2">块级语法</h2>
+<h4 id="块级数学公式：">块级数学公式：</h4>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext mathvariant="italic">θ</mtext><mo>:</mo><mo>=</mo><mtext mathvariant="italic">θ</mtext><mo>−</mo><mtext mathvariant="italic">η</mtext><mo>∗</mo><mi mathvariant="normal">∇</mi><mtext mathvariant="italic">L</mtext><mo stretchy="false">(</mo><mtext mathvariant="italic">θ</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\textit{θ}:=\textit{θ}−\textit{η}*∇\textit{L}(\textit{θ})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord text"><span class="mord textit">θ</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord textit">θ</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4653em;"></span><span class="mord text"><span class="mord textit">η</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∇</span><span class="mord text"><span class="mord textit">L</span></span><span class="mopen">(</span><span class="mord text"><span class="mord textit">θ</span></span><span class="mclose">)</span></span></span></span></span></p>
+<div class="note note-danger">
+            <p><strong>注意</strong>：Hexo本身不支持LaTeX，需要添加依赖：npm install hexo-math --save，并在配置文件中配置。</p>
+          </div>
+<h1>参考链接</h1>
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.markdownguide.org/basic-syntax/">Markdown语法</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a>
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs">Hexo Fluid 主题文档</a>
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:11" class="footnote-text"><span>这是脚注11，被自动排到文末参考文献后
+<a href="#fnref:11" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:22" class="footnote-text"><span>这是脚注22，序号自动排列
+<a href="#fnref:22" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Incessant-Coding-%E7%BC%96%E7%A8%8B%E4%B8%8D%E8%BE%8D/" class="category-chain-item">Incessant Coding-编程不辍</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
+      
+        <a href="/tags/Markdown/" class="print-no-link">#Markdown</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Hexo Fluid 初体验</div>
+      <div>https://mrkeanu-v.github.io/2025/06/01/hello-hexo/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>MrKeanu</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/06/05/%E5%8A%A0%E6%B3%95or%E5%87%8F%E6%B3%95/" title="加法or减法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">加法or减法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/05/2024/" title="2024总结">
+                        <span class="hidden-mobile">2024总结</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'boxy-light';
+      var dark = 'photon-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'MrKeanu-V/MrKeanu-V.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', '✨Comments✨');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/MrKeanu-V" target="_blank" rel="nofollow noopener"><span>GitHub</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
