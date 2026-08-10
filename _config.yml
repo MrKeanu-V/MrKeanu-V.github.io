@@ -103,7 +103,8 @@ theme: fluid
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: https://github.com/MrKeanu-V/MrKeanu-V.github.io
+  # Github no longer supports password authentication for Git operations. You need to use SSH keys or personal access tokens for authentication.
+  repo: git@github.com:MrKeanu-V/MrKeanu-V.github.io.git  # https://github.com/MrKeanu-V/MrKeanu-V.github.io
   branch: gh-pages
   message: 'Site updated: {{ now("YY-MM-DD") }}'
 
