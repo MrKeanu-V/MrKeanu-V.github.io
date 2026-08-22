@@ -1,0 +1,982 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/image/icon/avatar_shirt_alpha.png">
+  <link rel="icon" href="/image/icon/avatar_shirt_alpha.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="MrKeanu">
+  <meta name="keywords" content="Blog">
+  
+    <meta name="description" content="编码风格其实是开发者的Coding taste最直观体现。💩⛰️其实也是从bad flavor开始的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CodingStyle 总结">
+<meta property="og:url" content="https://mrkeanu-v.github.io/2026/05/22/CodeStyle%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="MrKeanu-Blog">
+<meta property="og:description" content="编码风格其实是开发者的Coding taste最直观体现。💩⛰️其实也是从bad flavor开始的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mrkeanu-v.github.io/image/bg/flower_in_sky.jpg">
+<meta property="article:published_time" content="2026-05-22T08:47:31.000Z">
+<meta property="article:modified_time" content="2026-08-22T09:07:57.682Z">
+<meta property="article:author" content="MrKeanu">
+<meta property="article:tag" content="Coding taste">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mrkeanu-v.github.io/image/bg/flower_in_sky.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>CodingStyle 总结 - MrKeanu-Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mrkeanu-v.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/image/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>MrKeanu</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/image/bg/flower_in_sky.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CodingStyle 总结"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-22 16:47" pubdate>
+          2026年5月22日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          27 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">CodingStyle 总结</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1>Coding Style 总结</h1>
+<p>单独把Coding Style列个文章，出于一种刻板印象——<span class="label label-danger">开发者在大多数人印象里往往和没品味划等号</span>，比如常听到“🧑‍💻(程序员)≈👕(格子衫)+👖(牛仔裤)”。我倒不关心一个人的穿衣风格或是这些外在的评价。不过作为开发者，我确实开始对（<s>或者说仍在对</s>😵‍💫）编码风格有所要求。根据我的个人观察，编码风格其实是开发者的Coding taste最直观体现，并且编码上的bad flavor其实就开始暗暗酝酿着💩⛰️。</p>
+<p>本文收集Coding Style最佳实践之余，也记录个人的一些经验总结。</p>
+<h2 id="C-C-Coding-Style">C/C++ Coding Style</h2>
+<h3 id="Google-C-Style">Google C++ Style</h3>
+<blockquote>
+<p>宇宙厂的最佳实践</p>
+</blockquote>
+<h4 id="构造函数">构造函数</h4>
+<ol>
+<li>没有其他构造函数的情况需<strong>显式声明默认构造函数</strong>，避免不必要</li>
+<li>单个参数的构造函数可能存在隐式转换，使用<code>explicit</code>修饰单参数构造函数</li>
+<li>仅在需要拷贝构造时声明拷贝构造函数，否则<code>=delete</code>，避免编译器自动生成拷贝构造产生非预期的拷贝操作</li>
+<li><strong>不在构造函数中做太多逻辑相关的初始化</strong></li>
+</ol>
+<h4 id="结构体和类">结构体和类</h4>
+<ol>
+<li>仅当只有数据时使用<code>struct</code>（可包含存取数据相关的函数），否则一概使用<code>class</code></li>
+<li>不确定的情况统一使用<code>class</code>，与STL结合时可以使用<code>struct</code></li>
+</ol>
+<h4 id="继承">继承</h4>
+<ol>
+<li>优先考虑使用<strong>组合</strong>而非继承，</li>
+<li>所有继承必须是 public 的，如果想私有继承的话，应该采取包含基类实例作为成员的方式作为替代</li>
+<li>类如果具有虚函数，则必须使用<code>virtual</code>修饰析构函数</li>
+</ol>
+<h4 id="多重继承">多重继承</h4>
+<ol>
+<li>慎用多重继承，因为真正需要<strong>多重继承</strong>的场景非常少</li>
+<li>多重继承允许子类拥有多个基类，要将作为纯接口的基类和具有实现的基类区别开来</li>
+<li>仅当多重继承的基类都是纯接口时才能使用多重继承</li>
+</ol>
+<h4 id="接口">接口</h4>
+<ol>
+<li>接口使用Interface作为后缀（现代编程中也使用I作为前缀，避免命名过长）</li>
+<li>仅当一个类满足以下要求时，称之为纯接口：
+<ol>
+<li>只有纯虚函数<code>=0</code>和静态函数（除析构函数）</li>
+<li>没有非静态数据成员</li>
+<li>没有定义任何构造函数，即使有也应当为<code>protected</code>修饰且不含输入参数</li>
+<li>如果是子类也仅当满足上述条件方可称之为接口</li>
+</ol>
+</li>
+<li>接口类不能直接实例化</li>
+<li>接口类的析构函数必须为虚函数，以保证子类实现被正确销毁</li>
+</ol>
+<h4 id="操作符重载">操作符重载</h4>
+<ol>
+<li>仅当一个类可以像内置类型（如<code>int</code>、<code>double</code>）那样直接使用并操作时，重载+、-等操作符</li>
+<li>慎用重载，因为重载会引入不易察觉的副作用，如重载操作符<code>&amp;</code>会使得类不能前向声明</li>
+</ol>
+<h4 id="存取控制">存取控制</h4>
+<ol>
+<li>数据成员应当私有化，并提供存取函数</li>
+<li>存取函数的定义一般内联在头文件中，如<code>Get*()</code>、<code>Set*()</code></li>
+</ol>
+<h4 id="声明次序">声明次序</h4>
+<ol>
+<li><code>public:</code>、<code>protected:</code>、<code>private:</code></li>
+<li>作用域块内声明次序如下：
+<ol>
+<li><code>typedefs</code>和 <code>enums</code></li>
+<li>常量</li>
+<li>构造函数、析构函数</li>
+<li>成员函数、静态成员函数</li>
+<li>数据成员、静态数据成员</li>
+</ol>
+</li>
+<li><code>.cxx</code>实现文件中函数的定义次序尽量保持和头文件一致</li>
+</ol>
+<p>函数体尽量短小、紧凑，功能单一。函数超过40行，应考虑分割</p>
+<h4 id="C-特性">C++特性</h4>
+<ol>
+<li>按引用传递的参数必须加上<code>const</code></li>
+<li>若必须修改参数值，使用指针传递</li>
+<li><strong>输入参数为值或常数引用，输出参数为指针</strong></li>
+<li>仅在输入参数类型不同、功能相同时使用重载函数</li>
+<li>可以使用函数名包含参数信息的方式代替重载函数，如<code>AppendString()</code>、<code>AppendInt()</code></li>
+<li>禁止使用缺省函数参数</li>
+<li>禁止使用变长数组和<code>alloca()</code></li>
+<li>不使用C++的异常处理，这是出于兼容和测试的考量</li>
+<li>禁止使用<strong>RTTI</strong>（Run-Time Type Information，运行时类型识别）</li>
+<li>使用C++风格的类型转换（如<code>static_cast&lt;&gt;()</code>），而非C风格的类型转换（(int)(x)）</li>
+<li>流是 <code>printf()</code>和 <code>scanf()</code>的替代，仅在记录日志时使用流</li>
+<li>使用前置自增和自减，后置自运算会拷贝临时变量</li>
+<li>尽可能使用<code>const</code></li>
+<li>使用宏时要谨慎，尽量以内联函数、枚举和常量代替之</li>
+<li>尽可能使用<code>sizeof(varname)</code>代替<code>sizeof(type)</code></li>
+<li>只是用<code>Boost</code>库中被认可的库，某些Boost库提倡的编程实践可读性差，如过度“函数化”（“functional”）的编程风格</li>
+</ol>
+<h4 id="命名规则">命名规则</h4>
+<ol>
+<li>函数命名、变量命名、文件命名应具有描述性，不要过度缩写，类型和变量应该是名词，函数名可以用“命令性”动词</li>
+<li>文件名全部小写，可包含<code>_</code>和<code>-</code></li>
+<li>定义类时文件名成对出现，即头文件和实现文件</li>
+<li>类型命名每个单词以大写字母开发，不包含下划线</li>
+<li>变量命名一律小写，单词间下划线链接</li>
+<li>类的成员变量以下划线结尾，结构体的成员变量则不用</li>
+<li>常量命名需加<code>k</code>前缀且单词首字母大小，如<code>kDaysInAWeek</code></li>
+<li>函数命名采用大驼峰原则，如<code>AddValue()</code></li>
+<li>命名空间的名称全小写：<code>google_awesome_project</code></li>
+<li>枚举命名全大写，单词间以下划线连接：<code>MY_ENUM_VALUE</code></li>
+<li>宏命名全大写，单词间以下划线连接：<code>MY_MACRO</code></li>
+</ol>
+<h4 id="注释">注释</h4>
+<ol>
+<li>使用<code>//</code>或<code>/**/</code>都可，统一就好</li>
+<li>每个文件开头都应假如版权公告和文件内容描述，如下
+<ul>
+<li><strong>版权信息</strong>：
+<ul>
+<li>版权（copyright statement）</li>
+<li>许可版本（license boilerplate）</li>
+<li>作者（author line）：标识文件作者和更改时间</li>
+</ul>
+</li>
+<li><strong>文件内容</strong>：
+<ul>
+<li><code>.h</code>文件添加声明的类的功能和用法描述</li>
+<li><code>.cc</code>文件包含实现细节的描述</li>
+<li>不要单纯在<code>.h</code>和<code>.cc</code>文件间复制注释，复制的注释往往偏离实际意义</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>每个类的定义应当注释描述类的功能和用法，如果该类实例存在多线程访问务必注释说明</li>
+<li>函数声明处描述函数功能，定义处描述函数实现，如下
+<ul>
+<li>输入参数（inputs）和输出参数（outputs）描述</li>
+<li>对类成员函数而言：函数调用期间对象是否需要保持引用参数，是否会释放这些参数</li>
+<li>若函数分配了空间，需由调用者释放</li>
+<li>参数是否可以为<code>NULL</code></li>
+<li>函数使用时是否存在<strong>性能隐患</strong>（performance implications）</li>
+<li>若函数可重入（re-entrant），其同步前提（synchronization assumptions）需明确说明</li>
+</ul>
+</li>
+<li>通常变量名本身应能够说明变量用途，对于类的成员变量应注释说明</li>
+<li>对于实现代码中巧妙的、晦涩的、有趣的或者重要的地方加以注释</li>
+<li>不要使用自然语言直接翻译代码作为注释，要假设读你代码的人C++比你强</li>
+<li>注意标点、拼写和语法，写得好的注释更易读</li>
+<li><strong>对于workaround，或有很大优化空间的代码似乎用TODO注释</strong>，如下
+<ul>
+<li>函数方法的TODO注释：<code>TODO(authorName): what need to do...</code></li>
+</ul>
+</li>
+<li>注释应当符合规范，适当的缩进和排版更容易阅读</li>
+<li><strong>代码行长度一般不超过80字符</strong></li>
+<li>统一使用<code>UTF-8</code>编码格式，避免<code>ASCII</code>、<code>chinese</code>等格式</li>
+<li>仅使用空格，每次缩进2空格，避免使用tabs（<code>spaces better than tabs</code>）</li>
+<li>函数相关格式，如下
+<ul>
+<li>返回值和函数名在同一行，参数也尽可能在同一行</li>
+<li><code>(</code>与函数名在同一行，且函数名与<code>(</code>之间无需空格</li>
+<li><code>(</code>和第一个参数之间也无需空格</li>
+<li><code>&#123;</code>和最后一个参数同行，一般在行末尾（注：这是一种<code>UNIX/Linux</code>风格，<code>WIN</code>下一般<code>&#123;&#125;</code>都是单独占行）</li>
+<li><code>&#125;</code>一般位于函数最后一行</li>
+<li>函数声明和实现出的所有参数名称必须一致</li>
+<li>缺省缩进为2个空格</li>
+<li>独立封装的参数缩进为4个空格</li>
+<li>函数中未使用的参数，需在函数定义时注释参数名</li>
+</ul>
+</li>
+<li>条件语句相关格式，如下
+<ul>
+<li><code>if</code>和<code>(</code>之间有空格，如<code>if (condition)</code></li>
+<li>一般条件判断<code>()</code>中无需空格</li>
+<li><code>else</code>需另起一行，如<code>&#125; else &#123;</code></li>
+<li>单行条件语句保持同一行可增强可读性</li>
+<li>若条件语句存在<code>else</code>禁止单行</li>
+</ul>
+</li>
+<li>循环和<code>switch</code>语句相关格式，如下
+<ul>
+<li><code>switch</code>语句中的<code>case</code>块可使用<code>&#123;&#125;</code>，一般不用</li>
+<li><code>switch</code>语句必须包含<code>default</code>块，如果<code>default</code>永远不会执行，可使用<code>assert</code></li>
+<li>空循环体需使用<code>&#123;&#125;</code>或<code>continue</code></li>
+</ul>
+</li>
+<li>指针和引用表达式相关格式，如下：
+<ul>
+<li>访问成员时，<code>.</code>和<code>-&gt;</code>前后都不要有空格</li>
+<li>指针操作符<code>*</code>或<code>&amp;</code>后不应有空格</li>
+<li>声明指针或引用型变量时，<code>*</code>和<code>&amp;</code>挨着类型还是变量名均可，和文件内的规范保持一致</li>
+</ul>
+</li>
+<li>如果布尔表达式超过标准宽度，断行时<code>&amp;&amp;</code>等逻辑运算符置于行尾</li>
+<li>返回值不需要使用<code>()</code>包裹</li>
+<li>变量及数组初始化使用<code>=</code>和<code>()</code>均可；（笔者注：现代C++支持统一初始化所以我默认值用{}，赋值用<code>()</code>）</li>
+<li>预处理指令（如<code>#define</code>）统一置于行首</li>
+<li>类中关键字<code>public:</code>、<code>protected:</code>和<code>private:</code>缩进1一个空格，关键词前空一行，后不空行；（笔者注：现在好像很少看到这种风格了，要么缩进4空格，要么缩进2空格。缩进1空格甚至有点异端）</li>
+<li>构造函数初始化列表放在同一行或按四格缩进并排几行</li>
+<li>命名空间不添加额外缩进</li>
+<li>水平留白因地制宜，不要在行尾添加无谓留白</li>
+<li>垂直留白尽可能少，不必要不添加空行，如函数头尾、代码块头尾不要空行</li>
+</ol>
+<h4 id="规则之外">规则之外</h4>
+<ol>
+<li>对于现有不符合规定风格的代码网开一面</li>
+<li><code>Windows</code>代码风格和<code>UNIX/Linux</code> 有所不同，尽管如此仍需注意
+<ul>
+<li>使用MSVC进行编译，应将警告级别设置为3或更高，并将所有<code>warnings</code>当作<code>errors</code>处理</li>
+<li>不要使用<code>#pragama once</code>作为包含保护，使用C++标准包含保护，且引入头文件时路径需到项目树顶层</li>
+</ul>
+</li>
+<li>除非万不得已，否则不使用任何不标准的扩展，如<code>__declspec</code>这些因使用<code>DLLVISIBLE</code>等宏包装</li>
+</ol>
+<h4 id="结语">结语</h4>
+<p>好了, 关于编码风格写的够多了; 代码本身才更有趣。尽情享受吧!</p>
+<h3 id="Personal-C-CPP-Coding-Style">Personal C/CPP Coding Style</h3>
+<p>个人目前的一些编码风格总结：</p>
+<ol>
+<li>
+<p>作用域按照<code>public</code>、<code>protected</code>、<code>private</code>，同作用域内先方法后属性</p>
+</li>
+<li>
+<p>在函数内部声明变量遵循以下顺序：</p>
+<ol>
+<li>Ctor后Dtor</li>
+<li>override的方法</li>
+<li>Set&amp;Get属性的方法</li>
+<li>具体的应用逻辑，按重要性或者命名进行排序，相同功能或者功能性相关的函数放在一起</li>
+</ol>
+</li>
+<li>
+<p><strong>关键字顺序</strong>：</p>
+<ol>
+<li>前置关键字：<code>virtual</code> &gt; <code>inline</code> &gt; <code>constexpr</code> &gt; 其他</li>
+<li>后置关键字：<code>const</code> / <code>volatile</code> → <code>override</code> → <code>final</code></li>
+</ol>
+</li>
+<li>
+<p>成员函数为公有的，首字母大小；为私有的，则首字母小写</p>
+</li>
+<li>
+<p>或许每个库都需要一个public_include文件，该文件用于描述当前库的功能和细节，以及一些通用的utils？</p>
+</li>
+<li>
+<p>对于<strong>结构体struct</strong>定义数据时要留意内存对齐，一般编译器会以结构体中最大的成员属性size进行内存对齐。因此，有条件的情况下，应当将size最大的成员属性放前面，size小的成员属性放后面，以避免<strong>自动填充</strong>。</p>
+<p><strong>补充</strong>：极少数情况可使用<code>__attribute__((packed))</code>取消自动对齐，特定情况下可使用<code>alignas(size_t)</code>指定对齐边界。</p>
+</li>
+<li>
+<p>关于拷贝构造函数和移动构造函数什么时候需要自定义：</p>
+<ol>
+<li>如果类中只包含标准库容器，那编译器生成的默认函数就是合理的（默认拷贝是深拷贝、默认移动是正确的移动）</li>
+<li>如果类中包含原始指针、手动管理的资源，此时应当显式定义<strong>析构、拷贝构造、拷贝复制、移动构造、移动赋值</strong>这五个函数。<strong>注意</strong>：若不需要拷贝或者不需要移动，也应当显式delete</li>
+</ol>
+<p>实践中：1. 优先使用标准库容器和智能指针 2. 开发初期不确定时应当禁用拷贝 3. 若必须管理原始资源则应完整实现拷贝、移动、析构等函数</p>
+</li>
+<li>
+<p>属性必须设置默认初始化值，尤其是指针变量。因为C++大部分编译器都不会零初始化指针变量（除非是全局或静态变量）。</p>
+</li>
+<li></li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Incessant-Coding-%E7%BC%96%E7%A8%8B%E4%B8%8D%E8%BE%8D/" class="category-chain-item">Incessant Coding-编程不辍</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Coding-taste/" class="print-no-link">#Coding taste</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CodingStyle 总结</div>
+      <div>https://mrkeanu-v.github.io/2026/05/22/CodeStyle总结/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>MrKeanu</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年5月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/22/2025/" title="回顾2025">
+                        <span class="hidden-mobile">回顾2025</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'boxy-light';
+      var dark = 'photon-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'MrKeanu-V/MrKeanu-V.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', '✨Comments✨');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/MrKeanu-V" target="_blank" rel="nofollow noopener"><span>GitHub</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
