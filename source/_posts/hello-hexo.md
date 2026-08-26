@@ -25,7 +25,7 @@ Hexo 是一个快速、简洁且高效的博客框架，使用 Node.js 编写。
 
 ``` bash
 hexo new [layout] <post_name>
-hexo new code helloworld	# example
+hexo new coding helloworld	# example
 
 # 本文设提供推荐可选参数 coding insight life
 ```
