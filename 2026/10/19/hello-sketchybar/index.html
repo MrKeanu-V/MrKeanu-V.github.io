@@ -1,0 +1,1267 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/image/icon/avatar_shirt_alpha.png">
+  <link rel="icon" href="/image/icon/avatar_shirt_alpha.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="MrKeanu">
+  <meta name="keywords" content="Blog">
+  
+    <meta name="description" content="替代macOS原生状态栏，打造个人高效工作流。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello SketchyBar">
+<meta property="og:url" content="https://mrkeanu-v.github.io/2026/10/19/hello-sketchybar/index.html">
+<meta property="og:site_name" content="MrKeanu-Blog">
+<meta property="og:description" content="替代macOS原生状态栏，打造个人高效工作流。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mrkeanu-v.github.io/image/index/skybar.png">
+<meta property="article:published_time" content="2026-10-18T17:54:36.000Z">
+<meta property="article:modified_time" content="2026-10-18T18:48:25.927Z">
+<meta property="article:author" content="MrKeanu">
+<meta property="article:tag" content="Blog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mrkeanu-v.github.io/image/index/skybar.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Hello SketchyBar - MrKeanu-Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mrkeanu-v.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":true,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/image/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>MrKeanu</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/image/bg/cat_with_fish.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="高度客制化，不得不摸索的效率工具之一"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-10-19 01:54" pubdate>
+          2026年10月19日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">高度客制化，不得不摸索的效率工具之一</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Introduce">Introduce</h2>
+<p>SketchyBar是macOS顶部菜单栏（status bar）的替代品，与2021年由<strong>FelixKratz</strong>用Swift/AppleKit写成，本质是一个无边框窗口，可以像“容器”一样插入<strong>item</strong>。SketchyBar提供了高度的客制化潜力，用来打造一个个人自用的“提效”状态栏非常合适。</p>
+<p>SketchyBar 示例如下：<br>
+<img src="https://felixkratz.github.io/SketchyBar/assets/images/examples-e91544141827cce7e424ef77f613cea2.png" srcset="/image/loading.gif" lazyload alt="SketchyBar Examples"><br>
+总体而言SketchyBar可玩性非常高，上手也不算难。而且在社区<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[SketchyBar官方文档](https://felixkratz.github.io/SketchyBar/features)">[1]</span></a></sup>中有更多网友制作的有趣且美观的SketchyBar可供参考。</p>
+<p>目前SketchyBar常见的组织形式为：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs nix">- .config<span class="hljs-symbol">/</span><br>  <span class="hljs-operator">-</span> sketchybar<span class="hljs-symbol">/</span><br>    <span class="hljs-operator">-</span> items<span class="hljs-symbol">/</span>          <span class="hljs-comment"># 集成后的单个元素</span><br>    <span class="hljs-operator">-</span> plugins<span class="hljs-symbol">/</span>        <span class="hljs-comment"># 存放素有回脚本</span><br>      sketchybarrc    <span class="hljs-comment"># 配置文件</span><br></code></pre></td></tr></table></figure>
+<p>其中<code>sketchybarrc</code>为实际的配置文件，当启动SketchyBar时会自动执行该脚本，这就类似<code>.zshrc</code>一般。</p>
+<h3 id="Bar">Bar</h3>
+<p>整个顶部区域都可称之为 <strong>Bar</strong>，其全局属性用 <code>--bar</code> 设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sketchybar --bar position=top height=32 margin=0 \<br>                 color=0xcc1e1e2e blur_radius=20 \<br>                 padding_left=8 padding_right=8<br></code></pre></td></tr></table></figure>
+<p>默认 <code>display=all</code>，即<strong>每个显示器各画一条</strong>，共用同一份配置；也可以只显示在主屏：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sketchybar --bar display=main<br></code></pre></td></tr></table></figure>
+<p>常用 bar 属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>position</code></td>
+<td><code>top</code> / <code>bottom</code></td>
+<td><code>top</code></td>
+</tr>
+<tr>
+<td><code>height</code></td>
+<td>高度（点）</td>
+<td><code>25</code></td>
+</tr>
+<tr>
+<td><code>margin</code></td>
+<td>四周外边距</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>y_offset</code></td>
+<td>垂直偏移</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>corner_radius</code></td>
+<td>圆角</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>border_width</code> / <code>border_color</code></td>
+<td>边框</td>
+<td><code>0</code> / 红</td>
+</tr>
+<tr>
+<td><code>blur_radius</code></td>
+<td>背景模糊</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>padding_left</code> / <code>padding_right</code></td>
+<td>左右内边距</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>notch_width</code> / <code>notch_offset</code> / <code>notch_display_height</code></td>
+<td>刘海相关</td>
+<td><code>200</code> / <code>0</code> / <code>0</code></td>
+</tr>
+<tr>
+<td><code>display</code></td>
+<td><code>main</code> / <code>all</code> / 显示器编号列表</td>
+<td><code>all</code></td>
+</tr>
+<tr>
+<td><code>hidden</code></td>
+<td><code>off</code> / <code>on</code> / <code>current</code></td>
+<td><code>off</code></td>
+</tr>
+<tr>
+<td><code>topmost</code></td>
+<td>是否盖住所有窗口</td>
+<td><code>off</code></td>
+</tr>
+<tr>
+<td><code>sticky</code></td>
+<td>space 切换时是否保持</td>
+<td><code>on</code></td>
+</tr>
+<tr>
+<td><code>shadow</code></td>
+<td>是否画阴影</td>
+<td><code>off</code></td>
+</tr>
+<tr>
+<td><code>font_smoothing</code></td>
+<td>字体平滑</td>
+<td><code>off</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Item">Item</h3>
+<p>bar 里最小的可配置单元。一个 item 可以同时拥有：</p>
+<ul>
+<li>一个 <strong>icon</strong></li>
+<li>一个 <strong>label</strong></li>
+<li>一个 <strong>background</strong></li>
+<li>一张 <strong>image</strong></li>
+<li>一个 <strong>popup</strong></li>
+<li>一组 <strong>script</strong></li>
+</ul>
+<p>添加语法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sketchybar --add item &lt;名字&gt; &lt;位置&gt;<br></code></pre></td></tr></table></figure>
+<p>位置只能是：</p>
+<table>
+<thead>
+<tr>
+<th>位置</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>left</code></td>
+<td>左区</td>
+</tr>
+<tr>
+<td><code>right</code></td>
+<td>右区</td>
+</tr>
+<tr>
+<td><code>center</code></td>
+<td>中区</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>刘海左侧（notch 左）</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>刘海右侧（notch 右）</td>
+</tr>
+</tbody>
+</table>
+<p>关键规则：<strong>同一区域内的显示顺序 = <code>--add</code> 的先后顺序</strong>。后加的排在后面，可以用 <code>--move</code> / <code>--reorder</code> 调整。</p>
+<p>item 还可以绑定到特定 space / display：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sketchybar --<span class="hljs-built_in">set</span> &lt;名字&gt; space=1 display=2<br></code></pre></td></tr></table></figure>
+<p>这样它只在“第 1 个 space、第 2 块屏”出现。<code>ignore_association=on</code> 可以临时忽略这些绑定。</p>
+<h3 id="Component">Component</h3>
+<p>组件本质上是“带额外能力的 item”，普通 item 的属性它全都有。</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>添加语法</th>
+<th>额外能力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>space</code></td>
+<td><code>--add space space.1 left</code></td>
+<td>代表一个 Mission Control 桌面</td>
+</tr>
+<tr>
+<td><code>bracket</code></td>
+<td><code>--add bracket &lt;名&gt; &lt;成员...&gt;</code></td>
+<td>把多个 item 包在同一个背景里</td>
+</tr>
+<tr>
+<td><code>graph</code></td>
+<td><code>--add graph &lt;名&gt; &lt;位置&gt; &lt;宽度&gt;</code></td>
+<td>画折线图</td>
+</tr>
+<tr>
+<td><code>slider</code></td>
+<td><code>--add slider &lt;名&gt; &lt;位置&gt; &lt;宽度&gt;</code></td>
+<td>可点击/拖动的进度条</td>
+</tr>
+<tr>
+<td><code>alias</code></td>
+<td><code>--add alias &lt;App名&gt; &lt;位置&gt;</code></td>
+<td>镜像 macOS 原生菜单栏图标</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Popup">Popup</h3>
+<p>每个 item 天生带一个 popup 容器。把子 item 的位置写成 <code>popup.&lt;父名字&gt;</code> 就挂进去了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sketchybar --add item apple.about popup.apple.logo<br></code></pre></td></tr></table></figure>
+<p>父 item 点击时切换显示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sketchybar --<span class="hljs-built_in">set</span> apple.logo click_script=<span class="hljs-string">&quot;sketchybar --set apple.logo popup.drawing=toggle&quot;</span><br></code></pre></td></tr></table></figure>
+<p>popup 属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>popup.drawing</code></td>
+<td>开/关</td>
+<td><code>off</code></td>
+</tr>
+<tr>
+<td><code>popup.horizontal</code></td>
+<td>横向排列</td>
+<td><code>off</code></td>
+</tr>
+<tr>
+<td><code>popup.topmost</code></td>
+<td>是否最顶层</td>
+<td><code>on</code></td>
+</tr>
+<tr>
+<td><code>popup.height</code></td>
+<td><strong>行与行之间的间距</strong>（不是总高度）</td>
+<td>bar 高度</td>
+</tr>
+<tr>
+<td><code>popup.y_offset</code></td>
+<td>垂直偏移</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>popup.align</code></td>
+<td><code>left</code> / <code>right</code> / <code>center</code></td>
+<td><code>left</code></td>
+</tr>
+<tr>
+<td><code>popup.blur_radius</code></td>
+<td>背景模糊</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>popup.background.*</code></td>
+<td>背景属性</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Event-Script">Event + Script</h3>
+<p>item 可以订阅事件；事件发生时执行它的 <code>script</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sketchybar --subscribe &lt;名字&gt; &lt;事件&gt; [&lt;事件&gt;...]<br></code></pre></td></tr></table></figure>
+<p>脚本里可用的环境变量：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$NAME</code></td>
+<td>触发脚本的 item 名字</td>
+</tr>
+<tr>
+<td><code>$SENDER</code></td>
+<td>事件名（定时触发时是 <code>routine</code>）</td>
+</tr>
+<tr>
+<td><code>$INFO</code></td>
+<td>事件附带的额外信息（JSON/字符串）</td>
+</tr>
+<tr>
+<td><code>$CONFIG_DIR</code></td>
+<td>配置文件所在目录</td>
+</tr>
+<tr>
+<td><code>$BUTTON</code></td>
+<td>点击键：<code>left</code> / <code>right</code> / <code>other</code></td>
+</tr>
+<tr>
+<td><code>$MODIFIER</code></td>
+<td><code>shift</code> / <code>ctrl</code> / <code>alt</code> / <code>cmd</code></td>
+</tr>
+<tr>
+<td><code>$SCROLL_DELTA</code></td>
+<td>滚轮增量</td>
+</tr>
+<tr>
+<td><code>$SELECTED</code> / <code>$SID</code> / <code>$DID</code></td>
+<td>仅 space 组件</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Script vs click_script</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>何时执行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>script=</code></td>
+<td>订阅的事件触发时、<code>update_freq</code> 定时到点时、<code>--update</code> 时</td>
+</tr>
+<tr>
+<td><code>click_script=</code></td>
+<td>内联写鼠标点击时执行的脚本</td>
+</tr>
+</tbody>
+</table>
+<p>如果点击逻辑需要知道 <code>$BUTTON</code> / <code>$MODIFIER</code>，就用 <code>--subscribe &lt;名&gt; mouse.clicked</code> 配 <code>script</code>；<code>click_script</code> 适合“点一下就跑”的简单场景。</p>
+<h3 id="Config">Config</h3>
+<p>SketchyBar配置文件的默认路径为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">~/.config/sketchybar/sketchybarrc<br></code></pre></td></tr></table></figure>
+<p>配置文件其实是一个<code>shell</code>脚本，本质上就是一串SketchyBar指令发送可后台守护进程执行。</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<p>标准启动流程如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">brew services start sketchybar    # 开机自启 + 后台运行<br>sketchybar                        # 前台运行，能看到所有脚本报错<br>sketchybar --reload               # 重载当前配置（效果等同重启进程）<br>sketchybar --reload /path/to/rc   # 换一份配置<br>sketchybar --config /path/to/rc   # 启动时指定配置<br>sketchybar --hotload true         # 监视配置目录，改文件自动重载<br></code></pre></td></tr></table></figure>
+<h2 id="Commands">Commands</h2>
+<p>以下就是 <code>sketchybar --help</code> 的全部命令，按用途分组。</p>
+<h3 id="启动-全局">启动 / 全局</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sketchybar -c, --config &lt;file&gt;</code></td>
+<td>指定配置文件启动</td>
+</tr>
+<tr>
+<td><code>sketchybar --bar k=v ...</code></td>
+<td>设置全局 bar 属性</td>
+</tr>
+<tr>
+<td><code>sketchybar --default k=v ...</code></td>
+<td>修改“之后新建 item”的默认属性</td>
+</tr>
+<tr>
+<td><code>sketchybar --hotload true|false</code></td>
+<td>开关配置热重载</td>
+</tr>
+<tr>
+<td><code>sketchybar --reload [path]</code></td>
+<td>重载配置</td>
+</tr>
+<tr>
+<td><code>sketchybar --update</code></td>
+<td>强制所有脚本跑一遍、所有事件重发一次</td>
+</tr>
+<tr>
+<td><code>sketchybar --load-font &lt;path&gt;</code></td>
+<td>从任意路径加载字体文件</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><code>--update</code> 一般放在 <code>sketchybarrc</code> 最后一行，用来初始化那些“只在事件里更新”的 item。<strong>绝不要把它写进 item 的脚本里</strong>，否则无限递归。</p>
+</blockquote>
+<h3 id="增删改-item">增删改 item</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--add item &lt;名&gt; &lt;位置&gt;</code></td>
+<td>新建 item</td>
+</tr>
+<tr>
+<td><code>--set &lt;名&gt; k=v ...</code></td>
+<td>修改属性；名字支持 <code>/正则/</code></td>
+</tr>
+<tr>
+<td><code>--remove &lt;名&gt;</code></td>
+<td>删除 item，支持 <code>/正则/</code></td>
+</tr>
+<tr>
+<td><code>--rename &lt;旧&gt; &lt;新&gt;</code></td>
+<td>改名</td>
+</tr>
+<tr>
+<td><code>--clone &lt;父&gt; &lt;新&gt; [before|after]</code></td>
+<td>克隆一个 item</td>
+</tr>
+<tr>
+<td><code>--move &lt;名&gt; before|after &lt;参照&gt;</code></td>
+<td>移动到参照物前/后</td>
+</tr>
+<tr>
+<td><code>--reorder &lt;名&gt; &lt;名&gt; ...</code></td>
+<td>按给定顺序重排这些 item</td>
+</tr>
+<tr>
+<td><code>--default k=v ...</code></td>
+<td>改默认值，只影响之后创建的 item</td>
+</tr>
+</tbody>
+</table>
+<p><code>--set</code> 的正则示例（注意 shell 引号，避免被当成 glob）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sketchybar --<span class="hljs-built_in">set</span> <span class="hljs-string">&#x27;/space\..*/&#x27;</span> label.drawing=off<br>sketchybar --remove <span class="hljs-string">&#x27;/temp\..*/&#x27;</span><br></code></pre></td></tr></table></figure>
+<h3 id="组件">组件</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--add space &lt;名&gt; &lt;位置&gt;</code></td>
+<td>新建 space 组件</td>
+</tr>
+<tr>
+<td><code>--add bracket &lt;名&gt; &lt;成员...&gt;</code></td>
+<td>新建 bracket，成员可用 <code>/正则/</code></td>
+</tr>
+<tr>
+<td><code>--add graph &lt;名&gt; &lt;位置&gt; &lt;宽度&gt;</code></td>
+<td>新建 graph</td>
+</tr>
+<tr>
+<td><code>--push &lt;名&gt; &lt;0~1 的数值...&gt;</code></td>
+<td>往 graph 推数据点</td>
+</tr>
+<tr>
+<td><code>--add slider &lt;名&gt; &lt;位置&gt; &lt;宽度&gt;</code></td>
+<td>新建 slider</td>
+</tr>
+<tr>
+<td><code>--add alias &lt;App名&gt; &lt;位置&gt;</code></td>
+<td>镜像原生菜单栏项</td>
+</tr>
+</tbody>
+</table>
+<h3 id="事件">事件</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--subscribe &lt;名&gt; &lt;事件&gt; ...</code></td>
+<td>订阅事件</td>
+</tr>
+<tr>
+<td><code>--add event &lt;名&gt; [NSDistributedNotification名]</code></td>
+<td>自定义事件（可桥接系统/App 通知）</td>
+</tr>
+<tr>
+<td><code>--trigger &lt;事件&gt; [VAR=值 ...]</code></td>
+<td>手动触发事件，并可传环境变量</td>
+</tr>
+</tbody>
+</table>
+<h3 id="查询（debug）">查询（debug）</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--query bar</code></td>
+<td>bar 的全部属性（JSON）</td>
+</tr>
+<tr>
+<td><code>--query &lt;名&gt;</code></td>
+<td>某个 item 的全部属性（JSON）</td>
+</tr>
+<tr>
+<td><code>--query defaults</code></td>
+<td>当前默认属性</td>
+</tr>
+<tr>
+<td><code>--query events</code></td>
+<td>已注册事件</td>
+</tr>
+<tr>
+<td><code>--query default_menu_items</code></td>
+<td>可被 alias 的原生菜单栏项</td>
+</tr>
+<tr>
+<td><code>--query displays</code></td>
+<td>显示器信息</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sketchybar --query clock | jq<br></code></pre></td></tr></table></figure>
+<p>属性名拼错时 SketchyBar <strong>不会报错，只会静默忽略</strong>，所以“设了没反应”时第一件事就是 <code>--query</code> 看值到底有没有进去。</p>
+<h3 id="动画">动画</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sketchybar --animate &lt;曲线&gt; &lt;时长&gt; \<br>           --bar k=v ... \<br>           --<span class="hljs-built_in">set</span> &lt;名&gt; k=v ...<br></code></pre></td></tr></table></figure>
+<p>曲线：<code>linear</code>、<code>quadratic</code>、<code>tanh</code>、<code>sin</code>、<code>exp</code>、<code>circ</code>。</p>
+<p>时长单位是<strong>帧数（按 60Hz 计）</strong>，所以 <code>30</code> ≈ 0.5 秒。可以链式写多个同名属性做关键帧：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sketchybar --animate sin 20 --<span class="hljs-built_in">set</span> clock y_offset=4 y_offset=0<br></code></pre></td></tr></table></figure>
+<h2 id="My-Workspace">My Workspace</h2>
+<p>前面介绍得比较详尽了，实际SketchyBat的常用语法就是<code>-add</code>、<code>-script</code>之类的，语义理解起来更像是一个需要为其中元素设置属性、注册回掉的容器。SketchyBar本身的语法是简单的，难在回掉里的功能如何实现。<br>
+折腾SketchyBar的初衷是打造一套干净整洁的状态栏，用于构造自己的Workflow，保持专注、更容易保持心流的状态。在AI大人的协助下，前后折腾两天终于实现了预期的效果🥳。</p>
+<p>个人Workflow状态栏<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[个人工作流Bar参考](https://github.com/MrKeanu-V/dotfiles_mac/tree/main/sketchybar)">[3]</span></a></sup>效果如下图：</p>
+<p><img src="/image/my_skybar.png" srcset="/image/loading.gif" lazyload alt="Workflow Space Bar"></p>
+<p>左侧区域为Space，每个Space表示一个工作空间，前面的数字表示该工作空间所属的桌面编号（可以使用快捷键<code>ctrl+Num</code>直接跳转对应编号，也可以点击Space的图标进行跳转）。这是为零解决社区中常见的Space空间不含编号不能直观显示桌面所属的问题。其次就是每个Space后还会跟着一个小图标，该图标Icon直接表明了当前工作区间的职能，比如上图中有5个Space空间，分别表示终端、浏览器、Code/Read读写空间、工作间和杂物间，每个Space职能明晰、编号明确、语义直观，可以快速的跳转。且当前的Space工作空间会进行高亮显示，并列举其中正在运行的APP。<br>
+而右侧的区域仅保留4个关键的<strong>item</strong>，CPU占用率（这在编码时常用）、电池状态、时间，实际还有一个隐藏的📪信箱，当没有消息时自动隐藏。保持干净、直观的状态栏。</p>
+<h2 id="References">References</h2>
+<p>参考文献：</p>
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://felixkratz.github.io/SketchyBar/features">SketchyBar官方文档</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/FelixKratz/SketchyBar/discussions/47?sort=top">SketchyBar社区</a>
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/MrKeanu-V/dotfiles_mac/tree/main/sketchybar">个人工作流Bar参考</a>
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Incessant-Coding-%E7%BC%96%E7%A8%8B%E4%B8%8D%E8%BE%8D/" class="category-chain-item">Incessant Coding-编程不辍</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Incessant-Coding-%E7%BC%96%E7%A8%8B%E4%B8%8D%E8%BE%8D/Hello-World/" class="category-chain-item">Hello World</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Hello SketchyBar</div>
+      <div>https://mrkeanu-v.github.io/2026/10/19/hello-sketchybar/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>MrKeanu</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年10月19日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/08/26/morden-cpp/" title="Morden CPP">
+                        <span class="hidden-mobile">Morden CPP</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'boxy-light';
+      var dark = 'photon-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'MrKeanu-V/MrKeanu-V.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', '✨Comments✨');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/MrKeanu-V" target="_blank" rel="nofollow noopener"><span>GitHub</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":true,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
