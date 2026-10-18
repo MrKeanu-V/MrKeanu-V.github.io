@@ -3,6 +3,7 @@ title: Hexo Fluid 使用指南
 slogan: "Welcome to Hexo!"
 categories: 
   - Hexo
+  - Hello World
 tags:
   - template
 date: 2025-06-01

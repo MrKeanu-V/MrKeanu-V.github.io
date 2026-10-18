@@ -1,7 +1,7 @@
 ---
 title: Hexo Fluid 初体验
 slogan: "Hello Hexo!"
-categories: [Incessant Coding-编程不辍]
+categories: [Incessant Coding-编程不辍, Hello World]
 tags: [Hexo, Markdown]
 date: 2025-06-01
 published: true
