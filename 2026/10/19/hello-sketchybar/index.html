@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mrkeanu-v.github.io/image/index/skybar.png">
 <meta property="article:published_time" content="2026-10-18T17:54:36.000Z">
-<meta property="article:modified_time" content="2026-10-18T18:48:25.927Z">
+<meta property="article:modified_time" content="2026-10-20T12:42:47.204Z">
 <meta property="article:author" content="MrKeanu">
 <meta property="article:tag" content="Blog">
 <meta name="twitter:card" content="summary_large_image">
@@ -244,7 +244,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          2.2k 字
         
       </span>
     
@@ -255,7 +255,7 @@
         
         
         
-          18 分钟
+          19 分钟
         
       </span>
     
@@ -301,10 +301,12 @@
 <p>SketchyBar是macOS顶部菜单栏（status bar）的替代品，与2021年由<strong>FelixKratz</strong>用Swift/AppleKit写成，本质是一个无边框窗口，可以像“容器”一样插入<strong>item</strong>。SketchyBar提供了高度的客制化潜力，用来打造一个个人自用的“提效”状态栏非常合适。</p>
 <p>SketchyBar 示例如下：<br>
 <img src="https://felixkratz.github.io/SketchyBar/assets/images/examples-e91544141827cce7e424ef77f613cea2.png" srcset="/image/loading.gif" lazyload alt="SketchyBar Examples"><br>
-总体而言SketchyBar可玩性非常高，上手也不算难。而且在社区<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[SketchyBar官方文档](https://felixkratz.github.io/SketchyBar/features)">[1]</span></a></sup>中有更多网友制作的有趣且美观的SketchyBar可供参考。</p>
+总体而言SketchyBar可玩性非常高，上手也不算难。而且在社区<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[SketchyBar社区](https://github.com/FelixKratz/SketchyBar/discussions/47?sort=top)">[2]</span></a></sup>中有更多网友制作的有趣且美观的SketchyBar可供参考。</p>
 <p>目前SketchyBar常见的组织形式为：</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs nix">- .config<span class="hljs-symbol">/</span><br>  <span class="hljs-operator">-</span> sketchybar<span class="hljs-symbol">/</span><br>    <span class="hljs-operator">-</span> items<span class="hljs-symbol">/</span>          <span class="hljs-comment"># 集成后的单个元素</span><br>    <span class="hljs-operator">-</span> plugins<span class="hljs-symbol">/</span>        <span class="hljs-comment"># 存放素有回脚本</span><br>      sketchybarrc    <span class="hljs-comment"># 配置文件</span><br></code></pre></td></tr></table></figure>
-<p>其中<code>sketchybarrc</code>为实际的配置文件，当启动SketchyBar时会自动执行该脚本，这就类似<code>.zshrc</code>一般。</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs nix">- .config<span class="hljs-symbol">/</span><br>  <span class="hljs-operator">-</span> sketchybar<span class="hljs-symbol">/</span><br>    <span class="hljs-operator">-</span> items<span class="hljs-symbol">/</span>          <span class="hljs-comment"># 集成后的单个元素</span><br>    <span class="hljs-operator">-</span> plugins<span class="hljs-symbol">/</span>        <span class="hljs-comment"># 存放素有回调脚本</span><br>      sketchybarrc    <span class="hljs-comment"># 配置文件</span><br></code></pre></td></tr></table></figure>
+<p>其中<code>sketchybarrc</code>为实际的配置文件，当启动SketchyBar时会自动执行该脚本，这就类似<code>.zshrc</code>一般。特别需要说明的是<code>items</code>相当于存放好了SKetchyBar语法的脚本，封装了一个独立状态栏元素。而plugins听起来直觉上是状态栏元素（毕竟插件嘛），但实际却只是执行功能的脚本。</p>
+<h2 id="CookBook">CookBook</h2>
+<p>更详细的内容请Sketchy Bar的参考官方文档<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[SketchyBar官方文档](https://felixkratz.github.io/SketchyBar/features)">[1]</span></a></sup>，这里主要介绍使用SketchyBar必须要掌握的核心概念。</p>
 <h3 id="Bar">Bar</h3>
 <p>整个顶部区域都可称之为 <strong>Bar</strong>，其全局属性用 <code>--bar</code> 设置：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sketchybar --bar position=top height=32 margin=0 \<br>                 color=0xcc1e1e2e blur_radius=20 \<br>                 padding_left=8 padding_right=8<br></code></pre></td></tr></table></figure>
@@ -612,7 +614,7 @@
 <h2 id="Quick-Start">Quick Start</h2>
 <p>标准启动流程如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">brew services start sketchybar    # 开机自启 + 后台运行<br>sketchybar                        # 前台运行，能看到所有脚本报错<br>sketchybar --reload               # 重载当前配置（效果等同重启进程）<br>sketchybar --reload /path/to/rc   # 换一份配置<br>sketchybar --config /path/to/rc   # 启动时指定配置<br>sketchybar --hotload true         # 监视配置目录，改文件自动重载<br></code></pre></td></tr></table></figure>
-<h2 id="Commands">Commands</h2>
+<h2 id="CLI">CLI</h2>
 <p>以下就是 <code>sketchybar --help</code> 的全部命令，按用途分组。</p>
 <h3 id="启动-全局">启动 / 全局</h3>
 <table>
